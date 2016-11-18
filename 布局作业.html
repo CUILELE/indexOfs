@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset = 'utf-8' />
+  <style>
+    ul {width: 200px;}
+    ul li {color: #666;background-color: #eee;font-weight:bold; font-size: 14x; height: 30px; line-height: 30px; padding: 0 20px;list-style:none;}
+    ul .focus {font-size: 22px; background-color: #555;color:#fff;}
+    ul .near {font-size:18px; background-color: #ccc;color:blue;}
+    ul .none {background:#333;color:#fff;}
+    ul .side {background:orange;}
+  </style>
+
+</head>
+<script type="text/javascript">
+window.onload = function (){
+  var ul = document.getElementById('ul1');
+  var lis = ul.children;
+  
+  for(var i=0;i<lis.length;i++){
+  	lis[i].onmouseover = function (){
+  		for(var i = 0;i<lis.length;i++){
+  			lis[i].className = '';
+			ul.lastElementChild.className = 'none'
+			ul.firstElementChild.className = 'none'
+  		}
+  		if(this.previousElementSibling){
+  			this.previousElementSibling.className = 'none'
+  		}
+  		if(this.nextElementSibling){
+  			this.nextElementSibling.className = 'none'
+  		}
+		this.className = 'side'
+  	}
+  	lis[i].onmouseout = function (){
+  		for(var i = 0;i<lis.length;i++){
+  			lis[i].className = '';
+			ul.lastElementChild.className = 'none'
+			ul.firstElementChild.className = 'none'
+  		}
+  	}
+  	ul.lastElementChild.onmouseover = function (){
+  		this.className = 'side'
+  	}
+  }
+  
+}
+</script>
+<body>
+<ul id="ul1">
+	<li class="none">这是首行</li>
+    <li>111111</li>
+    <li>222222</li>
+    <li>333333</li>
+    <li>444444</li>
+    <li>555555</li>
+    <li>666666</li>
+    <li>111111</li>
+    <li>222222</li>
+    <li>333333</li>
+    <li>444444</li>
+    <li>555555</li>
+    <li class="none">这是末行</li>
+  </ul>
+
+ </body>
+</html>
